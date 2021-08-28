@@ -1,0 +1,16 @@
+import sys
+
+
+number = input('Mersenne primes are of the form 2^p - 1. Let p be:')
+sys.setrecursionlimit(int(number)**2)
+new_recursion_limit = sys.getrecursionlimit()
+
+
+def LucasLehmerSeq(prime, s_i = 4, count = 0):
+    if count == prime - 2:
+        return s_i
+    else:
+        return LucasLehmerSeq(prime, (s_i**2 - 2) % (2**prime - 1), count + 1)
+
+
+print(LucasLehmerSeq(int(number)))

@@ -10,8 +10,7 @@ def LucasLehmerSeq(prime, s_i = 4, count = 0):
         if s_i == 0:
             return 'The Mersenne number is prime.'
         else:
-            print('The Mersenne number is composite')
-            return 'With Lucas–Lehmer residue of: ' + str(s_i)
+            return 'The Mersenne number is composite, with a Lucas–Lehmer residue of: ' + str(s_i % (2**prime-1))
     else:
         return LucasLehmerSeq(prime, (s_i**2 - 2) % (2**prime - 1), count + 1)
 
